@@ -3,10 +3,10 @@ function memoize(fn) {
   return function (x) {
     if (x in cache) {
       return cache[x];
-    } else {
-      cache[x] = fn(x);
-      return fn(x);
     }
+    const y = fn(x);
+    cache[x] = y;
+    return y;
   }
 }
 
@@ -18,7 +18,7 @@ function factorial(x) {
   return x * factorial(x - 1);
 }
 
-const factorialClosure = memoize(factorial);
-console.log(factorialClosure(10));
-console.log(factorialClosure(6));
-console.log(factorialClosure(5));
+factorial = memoize(factorial);
+console.log(factorial(10));
+console.log(factorial(6));
+console.log(factorial(5));

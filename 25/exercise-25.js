@@ -5,6 +5,12 @@ const person = {
     this.firstName = name;
     this.lastName = surname;
   },
+  getName() {
+    return this.firstName;
+  },
+  getSurname() {
+    return this.lastName;
+  },
   fullName() {
     return this.firstName + " " + this.lastName;
   }

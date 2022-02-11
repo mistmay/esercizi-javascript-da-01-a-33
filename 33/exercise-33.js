@@ -1,15 +1,6 @@
 function firstUncompletedNote(notes) {
-  let check = false;
-  for (let i = 0; i < notes.length; i++) {
-    for (let k = 0; k < notes[i].todos.length; k++) {
-      if (notes[i].todos[k].done !== true) {
-        check = true;
-      }
-    }
-    if (check === true) {
-      return Object.assign({}, notes[i]);
-    }
-  }
+  const firstUncompleted = notes.find(item => item.todos.find(item2 => item2.done === false));
+  return firstUncompleted;
 }
 
 const notes = [{

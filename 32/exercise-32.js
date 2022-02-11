@@ -1,18 +1,6 @@
 function uncompletedNotes(notes) {
-  const array = [];
-  let check = false;
-  for (let i = 0; i < notes.length; i++) {
-    for (let k = 0; k < notes[i].todos.length; k++) {
-      if (notes[i].todos[k].done !== true) {
-        check = true;
-      }
-    }
-    if (check === true) {
-      array.push(notes[i]);
-      check = false;
-    }
-  }
-  return array;
+  const uncompleted = notes.filter(item => item.todos.find(item2 => item2.done === false));
+  return uncompleted;
 }
 
 const notes = [{

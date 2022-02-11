@@ -9,8 +9,7 @@ const person1 = {
   }
 };
 
-const person2 = Object.assign({}, person1);
-person2.address = Object.assign({}, person1.address);
+const person2 = JSON.parse(JSON.stringify(person1));
 
 person2.address.region = 'Lombardia';
 person2.address.city = 'Milan';
